@@ -29,20 +29,40 @@ export class UserServiceService {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
-      
     });
     // console.log(response.json());
-    
+
     return response.json();
   }
-  async checkUserDetails(token:string) {
+  async checkUserDetails(token: string) {
     const response = await fetch(`${this.userUrl}/check`, {
       method: 'GET',
       headers: {
-        token:token
+        token: token,
       },
-      
     });
     return response.json();
   }
+
+  async getAllUsers(token: string) {
+    try {
+      const response = await fetch(`${this.userUrl}/users`, {
+        method: 'GET',
+        headers: {
+          token: token,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch users. Status: ${response.status}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      throw error;
+    }
+  }
 }
+
+

@@ -33,10 +33,10 @@ export class LoginComponent {
     this.api.login(this.userData).then(
       (data) => {
         localStorage.setItem('token', data.token);
-        console.log(data);
+        // console.log(data);
         try {
           this.api.checkUserDetails(data.token).then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.role === 'user') {
               localStorage.setItem('name', data.name);
               this.router.navigate(['/user']);
@@ -48,10 +48,10 @@ export class LoginComponent {
           });
         } catch (error) {
           console.log(error);
+
         }
 
-        // alert('User registered successfully');
-        // this.router.navigate(['/login']);
+    
       },
       (error) => {
         console.log(error);

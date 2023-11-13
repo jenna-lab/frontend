@@ -12,6 +12,12 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'user', component: UserComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'users', component: AdminComponent },
+  { path: 'admin/projects', component: AdminComponent },
+  { path: 'admin/assigned', component: AdminComponent },
+  { path: 'admin/completed', component: AdminComponent },
+  { path: 'admin/createnew', component: AdminComponent },
+
   { path: '**', component: NotfoundComponent },
 ];
 

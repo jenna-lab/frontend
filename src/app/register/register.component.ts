@@ -42,13 +42,16 @@ export class RegisterComponent {
       name: this.userData.name,
       email: this.userData.email,
       password: this.userData.password,
+      role: 'admin',
     };
 
     this.api.register(this.userData).then(
       (data) => {
         console.log(userData);
-        alert('User logedin successfully');
+        alert('User registered successfully');
+                // alert('Admin registered successfully');
         // this.router.navigate(['/login']);
+
       },
       (error) => {
         console.log(error);
